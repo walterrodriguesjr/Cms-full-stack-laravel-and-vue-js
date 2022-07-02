@@ -1,0 +1,39 @@
+CMS vue and laravel 
+
+https://www.youtube.com/watch?v=iHHBb-9455s&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7
+0-Laravel vue js project overview | Full Stack Laravel and Vue.js Development | Part - 00
+
+    -Desenvolvimento Full Stack Laravel e Vue.js
+        explicações sobre o projeto 
+
+
+https://www.youtube.com/watch?v=NMTEfaPEYB8&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=2
+1-Laravel Vue js set-up with Vue.js router & components | Very important tutorial for this series | 01
+
+    -criando router e components no Vue 
+        criado o projeto em laravel 7 
+            composer create-project --prefer-dist laravel/laravel:^7.0 cms 
+
+        instalado o pacote npm 
+            npm install
+
+        instalado o vue na versão: 2.6.11
+            npm install vue@2.6.11 
+
+            instalado posterirmente a versão de vue@2.7.0
+
+        após criação de pastas e arquivos e configuração, executa o npm run watch, que compila tudo 
+            npm run watch
+
+        instalado o vue-router versão 3.1.6 
+            npm install vue-router@3.1.6
+
+        MUITO CUIDADO AO INSTALAR A VERSÃO DESTAS DEPENDÊNCIAS, SE FOREM DIFERENTES PODEM QUEBRAR 
+            O CÓDIGO! 
+
+
+
+
+        
+          
+

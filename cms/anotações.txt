@@ -32,6 +32,14 @@ https://www.youtube.com/watch?v=NMTEfaPEYB8&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
             O CÓDIGO! 
 
 
+https://www.youtube.com/watch?v=QlQ5jCGMS4w&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=3
+2-Lets run some vue | Vue hooks ( created , mounted .. ) | Full Stack Laravel Vue Development | Part 2
+
+    -trabalhando com 'hooks' no vue (ganchos)
+        foraqm usados do 'hook', created, mounted
+
+
+
 
 
         

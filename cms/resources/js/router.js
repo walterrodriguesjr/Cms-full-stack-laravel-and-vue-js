@@ -3,16 +3,24 @@ import Router from 'vue-router'
 Vue.use(Router)
 import firstPage from "./components/pages/myFirstVuePage"
 import newRoutePage from "./components/pages/newRoutePage"
+import hooks from "./components/pages/basic/hooks.vue"
 
 const routes = [
     {
         path: '/my-new-vue-route',
-        component: firstPage
+        component: firstPage,
+        name: 'home',
     },
     {
         path: '/new-route',
         component: newRoutePage
-    }
+    },
+
+    // vue hooks
+    {
+        path: '/hooks',
+        component: hooks
+    },
 ]
 
 export default new Router({

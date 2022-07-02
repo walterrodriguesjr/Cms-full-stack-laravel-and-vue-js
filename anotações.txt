@@ -1,0 +1,7 @@
+CMS vue and laravel 
+
+https://www.youtube.com/watch?v=iHHBb-9455s&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7
+0-Laravel vue js project overview | Full Stack Laravel and Vue.js Development | Part - 00
+
+    -Desenvolvimento Full Stack Laravel e Vue.js
+        

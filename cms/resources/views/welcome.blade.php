@@ -6,7 +6,7 @@
 
         <title>Full Stack Blog</title>
 
-      
+        <link rel="stylesheet" href="/css/all.css">
 
         <!-- Styles -->
        

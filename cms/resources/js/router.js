@@ -7,11 +7,16 @@ import hooks from "./components/pages/basic/hooks.vue"
 import methods from "./components/pages/basic/methods.vue"
 
 const routes = [
+    //projects routes
+
+
     {
         path: '/my-new-vue-route',
         component: firstPage,
         name: 'home',
     },
+
+    //basic tutorials routes
     {
         path: '/new-route',
         component: newRoutePage

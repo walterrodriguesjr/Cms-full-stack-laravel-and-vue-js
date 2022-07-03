@@ -79,6 +79,43 @@ https://www.youtube.com/watch?v=uInnUVqIIWM&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
         implementado as abas dashboard e tags, no side bar do Admin 
 
 
+https://www.youtube.com/watch?v=H_wQwwlk_I4&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=7
+6-Laravel vue seo friendly blog database design , Model and Migration creation | Part - 06
+
+    -usando Laravel, criando o bando de dados, Models e Migrations 
+        usado o site: app.dbdesigner.net , para fazer o design das tabelas do banco 
+
+        criada a model juntamente com a migration de 'Category'
+            php artisan make:model Category -m
+        
+        criada a model juntamente com a migration de 'Tag'
+            php artisan make:model Tag -m
+
+        criada a model juntamente com a migration de 'Blog'
+            php artisan make:model Blog -m
+
+        criada a model juntamente com a migration de 'Blogtag'
+            php artisan make:model Blogtag -m
+
+        criada a model juntamente com a migration de 'Blogcategory'
+            php artisan make:model Blogcategory -m
+
+        configurada a migration: create_users_table 
+        configurada a migration: create_categories_table 
+        configurada a migration: create_tags_table 
+        configurada a migration: create_blogs_table 
+        configurada a migration: create_blogtags_table 
+        configurada a migration: create_blogcategories_table 
+
+        criado o banco de dados da aplicação: fullstack
+
+        rodada as referidas migration, criando as tabelas e colunas 
+            php artisan migrate 
+
+        
+
+
+
 
 
 

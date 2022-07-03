@@ -112,6 +112,23 @@ https://www.youtube.com/watch?v=H_wQwwlk_I4&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
         rodada as referidas migration, criando as tabelas e colunas 
             php artisan migrate 
 
+
+https://www.youtube.com/watch?v=X08Y_8DkRNc&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=8
+7-Vue mixin and axios | Add and get tag list | Full stack laravel vue development | Part - 07
+
+    -Vue mixin e axios | Adicionar e obter lista de tags
+        adicionado itens de HTML em tags.vue, feito também customizações 
+        criado o arquivo common.js para inserir o axios 
+            https://github.com/axios/axios
+
+        criado o controler adminController 
+            php artisan make:controller AdminController
+
+            PAREI EM 31 MIN
+        
+
+
+
         
 
 

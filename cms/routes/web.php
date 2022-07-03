@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\TestController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/testpage', function () {
+Route::post('app/create_tag', 'AdminController@addTag');
+
+Route::get('/', function(){
     return view('welcome');
 });
-
-Route::get('/new', 'TestController@controllerMethod');
 
 Route::any('{slug}', function(){
     return view('welcome');

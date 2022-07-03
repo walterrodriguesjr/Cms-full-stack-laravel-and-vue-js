@@ -1,4 +1,5 @@
 CMS vue and laravel 
+repositório do projeto: https://github.com/hkmsadek/fullstack-laravel-vue 
 
 https://www.youtube.com/watch?v=iHHBb-9455s&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7
 0-Laravel vue js project overview | Full Stack Laravel and Vue.js Development | Part - 00
@@ -57,6 +58,33 @@ https://www.youtube.com/watch?v=6VX_t45z8Mc&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
         implementados no webpack.mix.js 
 
 
+https://www.youtube.com/watch?v=uInnUVqIIWM&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=6
+5-Laravel Vue Admin Panel Setup | Full Stack Laravel Vue Development | Part 05
+
+    -Configuração do painel de administração
+        instalando o iviewui (similar ao AdminLte)
+            https://www.iviewui.com/
+                npm install view-design@4.1.3 --save
+
+        importando o css 
+            import 'view-ui-plus/dist/styles/viewuiplus.css'
+
+        incluido em app.js 
+            import ViewUI from 'view-design';
+            import 'view-design/dist/styles/iview.css';
+            Vue.use(ViewUI);
+
+        o HTML do painel Admin foi copiado do repositorio do curso, em mainapp.vue
+        o CSS do painel Admin está todo em 'main.css'
+        implementado as abas dashboard e tags, no side bar do Admin 
+
+
+
+
+
+
+
+        
 
 
 

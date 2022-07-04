@@ -28,15 +28,13 @@
               <!-- TABLE TITLE -->
 
               <!-- ITEMS -->
-              <tr>
-                <td>1</td>
-                <td class="_table_name">
-                  Manhattan's art center "Shed" opening ceremony
-                </td>
-                <td>Economy</td>
+              <tr v-for="(tag, i) in tags" :key="i" v-if="tags.length">
+                <td>{{tag.id}}</td>
+                <td class="_table_name">{{tag.tagName}}</td>
+                <td>{{tag.created_at}}</td>
                 <td>
-                  <Button type="info" size="small">Info</Button>
-                  <Button type="error" size="small">Error</Button>
+                  <Button type="info" size="small">Edit</Button>
+                  <Button type="error" size="small">Delete</Button>
                 </td>
               </tr>
               <!-- ITEMS -->
@@ -73,6 +71,7 @@ export default {
       },
       addModal: false,
       isAdding: false,
+      tags:[]
     }
   },
 
@@ -81,11 +80,22 @@ export default {
       if(this.data.tagName.trim()=='') return this.e('Tag name is required')
       const res = await this.callApi('post', 'app/create_tag', this.data)
       if(res.status===201){
+        this.tags.unshift(res.data)
         this.s('Tag has been added successully!')
         this.addModal = false
+        this.data.tagName = ''
       }else{
         this.swr()
       }
+    }
+  },
+
+  async created(){
+    const res = await this.callApi('get', 'app/get_tags')
+    if(res.status==200){
+      this.tags = res.data
+    }else{
+      this.swr()
     }
   }
 }

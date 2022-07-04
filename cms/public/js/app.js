@@ -2002,7 +2002,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         tagName: ''
       },
       addModal: false,
-      isAdding: false
+      isAdding: false,
+      tags: []
     };
   },
   methods: {
@@ -2030,9 +2031,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 res = _context.sent;
 
                 if (res.status === 201) {
+                  _this.tags.unshift(res.data);
+
                   _this.s('Tag has been added successully!');
 
                   _this.addModal = false;
+                  _this.data.tagName = '';
                 } else {
                   _this.swr();
                 }
@@ -2045,6 +2049,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      var res;
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _this2.callApi('get', 'app/get_tags');
+
+            case 2:
+              res = _context2.sent;
+
+              if (res.status == 200) {
+                _this2.tags = res.data;
+              } else {
+                _this2.swr();
+              }
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }))();
   }
 });
 
@@ -2563,19 +2596,23 @@ var render = function render() {
     staticClass: "_overflow _table_div"
   }, [_c("table", {
     staticClass: "_table"
-  }, [_vm._m(0), _vm._v(" "), _c("tr", [_c("td", [_vm._v("1")]), _vm._v(" "), _c("td", {
-    staticClass: "_table_name"
-  }, [_vm._v('\r\n                  Manhattan\'s art center "Shed" opening ceremony\r\n                ')]), _vm._v(" "), _c("td", [_vm._v("Economy")]), _vm._v(" "), _c("td", [_c("Button", {
-    attrs: {
-      type: "info",
-      size: "small"
-    }
-  }, [_vm._v("Info")]), _vm._v(" "), _c("Button", {
-    attrs: {
-      type: "error",
-      size: "small"
-    }
-  }, [_vm._v("Error")])], 1)])])])]), _vm._v(" "), _c("Modal", {
+  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.tags, function (tag, i) {
+    return _vm.tags.length ? _c("tr", {
+      key: i
+    }, [_c("td", [_vm._v(_vm._s(tag.id))]), _vm._v(" "), _c("td", {
+      staticClass: "_table_name"
+    }, [_vm._v(_vm._s(tag.tagName))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(tag.created_at))]), _vm._v(" "), _c("td", [_c("Button", {
+      attrs: {
+        type: "info",
+        size: "small"
+      }
+    }, [_vm._v("Edit")]), _vm._v(" "), _c("Button", {
+      attrs: {
+        type: "error",
+        size: "small"
+      }
+    }, [_vm._v("Delete")])], 1)]) : _vm._e();
+  })], 2)])]), _vm._v(" "), _c("Modal", {
     attrs: {
       title: "Add tag",
       "mask-closable": false,

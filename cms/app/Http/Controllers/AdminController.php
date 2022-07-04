@@ -13,4 +13,8 @@ class AdminController extends Controller
             'tagName' => $request->tagName
         ]);
     }
+
+    public function getTag(){
+      return Tag::orderBy('id', 'desc')->get();  
+    }
 }

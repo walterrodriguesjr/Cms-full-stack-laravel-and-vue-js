@@ -124,7 +124,24 @@ https://www.youtube.com/watch?v=X08Y_8DkRNc&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
         criado o controler adminController 
             php artisan make:controller AdminController
 
-            PAREI EM 31 MIN
+
+https://www.youtube.com/watch?v=eQ2OPuDsnoE&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=9
+8-Laravel backend validation | Reactive edit and delete tag using vue.js | Part - 08
+    
+    -Validação de backend Laravel | Edição reativa e exclusão de tag usando vue.js
+        validate() inserido no controller 'AdminController' de required em 'tagName'
+
+        lógica de EditTag adicionada ao controller AdminController
+
+        criado o modal de editTag (baseado no de Add) criada a lógica em Vue para edit e os métodos 
+
+        em web foi criado a Route get de editTag 
+
+        parei em 19 min
+
+
+
+           
         
 
 

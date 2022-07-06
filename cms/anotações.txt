@@ -142,8 +142,12 @@ https://www.youtube.com/watch?v=eQ2OPuDsnoE&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
         inserindo as mesmas funções, porem de delete, envolvendo o AdminController e route 
 
 
+https://www.youtube.com/watch?v=KfjEZzisQTo&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=10
+File (image) upload in laravel and vue.js | Full stack laravel and vue development | Part - 09
 
+    -Upload de arquivo (imagem) em laravel e vue.js 
 
+    -PAREI EM 4:00 (apos corrigir os bugs de delete tag)
 
 
 

@@ -147,7 +147,7 @@ File (image) upload in laravel and vue.js | Full stack laravel and vue developme
 
     -Upload de arquivo (imagem) em laravel e vue.js 
 
-    -PAREI EM 4:00 (apos corrigir os bugs de delete tag)
+    -PAREI EM 4:00 (apos corrigir os bugs de delete tag) ok
 
 
 

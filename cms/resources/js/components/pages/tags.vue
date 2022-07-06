@@ -34,7 +34,7 @@
                 <td>{{tag.created_at}}</td>
                 <td>
                   <Button type="info" size="small" @click="showEditModal(tag, i)">Edit</Button>
-                  <Button type="error" size="small">Delete</Button>
+                  <Button type="error" size="small" @click="showDeletingModal(tag, i)" :loading="tag.isDeleting">Delete</Button>
                 </td>
               </tr>
               <!-- ITEMS -->
@@ -72,6 +72,23 @@
           </div>
         </Modal>
 
+        <!-- deleting alert modal -->
+         <Modal v-model="showDeleteModal" width="360">
+            <template #header>
+                <p style="color:#f60;text-align:center">
+                    <Icon type="ios-information-circle"></Icon>
+                    <span>Delete confirmation</span>
+                </p>
+            </template>
+            <div style="text-align:center">
+                <p>Are you sure you want to delete tag?</p>
+                
+            </div>
+            <template #footer>
+                <Button type="error" size="large" long :loading="isDeleing" :disabled="isDeleing" @click="deleteTag">Delete</Button>
+            </template>
+        </Modal>
+
       </div>
     </div>
   </div>
@@ -92,7 +109,12 @@ export default {
       editData: {
         tagName: ''
       },
-      index: -1
+      index: -1,
+      showDeleteModal: false,
+      isDeleing: false,
+      deleteItem: {},
+      deletingIndex: -1
+
     }
   },
 
@@ -138,6 +160,7 @@ export default {
         }
       }
     },
+
     showEditModal(tag, index){
       let obj = {
         id: tag.id,
@@ -146,6 +169,25 @@ export default {
       this.editData = obj
       this.editModal = true
       this.index = index
+    },
+
+    async deleteTag(){
+      this.isDeleing = true
+      const res = await this.callApi('post', 'app/delete_tag', this.deleteItem)
+      if(res.status===200){
+        this.tags.splice(this.deletingIndex, 1)
+        this.s('Tag has been deleted successfully!')
+      }else{
+        this.swr()
+      }
+        this.isDeleing = false
+        this.showDeleteModal = false
+    },
+
+    showDeletingModal(tag, i){
+      this.deleteItem = tag
+      this.deletingIndex = i
+      this.showDeleteModal = true
     }
   },
   

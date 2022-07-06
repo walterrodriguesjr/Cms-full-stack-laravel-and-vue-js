@@ -137,7 +137,14 @@ https://www.youtube.com/watch?v=eQ2OPuDsnoE&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
 
         em web foi criado a Route get de editTag 
 
-        parei em 19 min
+        em web foi criado a Route get de deleteTag 
+
+        inserindo as mesmas funções, porem de delete, envolvendo o AdminController e route 
+
+
+
+
+
 
 
 

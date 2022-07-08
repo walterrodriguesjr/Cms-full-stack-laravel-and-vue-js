@@ -143,11 +143,18 @@ https://www.youtube.com/watch?v=eQ2OPuDsnoE&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
 
 
 https://www.youtube.com/watch?v=KfjEZzisQTo&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=10
-File (image) upload in laravel and vue.js | Full stack laravel and vue development | Part - 09
+9-File (image) upload in laravel and vue.js | Full stack laravel and vue development | Part - 09
 
     -Upload de arquivo (imagem) em laravel e vue.js 
+        em: 'resources/js' criada a pasta 'admin' e dentro, o arquivo 'components.vue'
 
-    -PAREI EM 4:00 (apos corrigir os bugs de delete tag) ok
+    inserida a parte de front-end de componentes que servem para upload de imagem e encaminham 
+        para uma pasta em public chamada upload, feito as router.vue, routes, AdminController disso 
+
+    
+
+            
+    
 
 
 

@@ -171,7 +171,16 @@ https://www.youtube.com/watch?v=GDKY3GmlKXw&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
 12-Laravel vuejs add and get category with image | Full stack laravel vue development | Part - 12
 
     -Laravel vuejs adiciona e obtém categoria com imagem
-        
+
+
+https://www.youtube.com/watch?v=avDeyaNhB9s&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=14
+13-Laravel vue js edit category with image reactively | Full stack laravel vue development | Part 13
+
+    -Laravel vue js editar categoria com imagem de forma reativa
+        NÃO REALIZADA 
+
+
+
 
 
 

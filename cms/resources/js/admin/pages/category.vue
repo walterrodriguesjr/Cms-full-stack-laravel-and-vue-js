@@ -127,7 +127,6 @@ export default {
       editModal: false,
       isAdding: false,
       tags:[],
-
       editData: {
         tagName: ''
       },

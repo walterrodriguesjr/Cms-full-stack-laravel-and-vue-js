@@ -1940,7 +1940,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   //métodos de adicionar tag
   methods: {
-    addTag: function addTag() {
+    addCategory: function addCategory() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -1949,32 +1949,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this.data.tagName.trim() == '')) {
+                if (!(_this.data.categoryName.trim() == '')) {
                   _context.next = 2;
                   break;
                 }
 
-                return _context.abrupt("return", _this.e('Tag name is required'));
+                return _context.abrupt("return", _this.e('Category name is required'));
 
               case 2:
-                _context.next = 4;
-                return _this.callApi('post', 'app/create_tag', _this.data);
+                if (!(_this.data.iconImage.trim() == '')) {
+                  _context.next = 4;
+                  break;
+                }
+
+                return _context.abrupt("return", _this.e('Icon image is required'));
 
               case 4:
+                _context.next = 6;
+                return _this.callApi('post', 'app/create_category', _this.data);
+
+              case 6:
                 res = _context.sent;
 
                 if (res.status === 201) {
                   _this.tags.unshift(res.data);
 
-                  _this.s('Tag has been added successully!');
+                  _this.s('Category has been added successully!');
 
                   _this.addModal = false;
-                  _this.data.tagName = '';
+                  _this.data.categoryName = '';
+                  _this.data.iconImage = '';
                 } else {
                   //validação do Add tag, vinculada a validação de AdminController
                   if (res.status == 422) {
-                    if (res.data.errors.tagName) {
-                      _this.e(res.data.errors.tagName[0]);
+                    if (res.data.errors.categoryName) {
+                      _this.e(res.data.errors.categoryName[0]);
+                    }
+
+                    if (res.data.errors.iconImage) {
+                      _this.e(res.data.errors.iconImage[0]);
                     }
 
                     console.log(res.data.errors.tagName);
@@ -1983,7 +1996,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }
                 }
 
-              case 6:
+              case 8:
               case "end":
                 return _context.stop();
             }
@@ -2564,11 +2577,11 @@ var render = function render() {
       placeholder: "Add category name"
     },
     model: {
-      value: _vm.data.tagName,
+      value: _vm.data.categoryName,
       callback: function callback($$v) {
-        _vm.$set(_vm.data, "tagName", $$v);
+        _vm.$set(_vm.data, "categoryName", $$v);
       },
-      expression: "data.tagName"
+      expression: "data.categoryName"
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "space"
@@ -2636,9 +2649,9 @@ var render = function render() {
       loading: _vm.isAdding
     },
     on: {
-      click: _vm.addTag
+      click: _vm.addCategory
     }
-  }, [_vm._v(_vm._s(_vm.isAdding ? "Adding.." : "Add tag"))])], 1)], 1), _vm._v(" "), _c("Modal", {
+  }, [_vm._v(_vm._s(_vm.isAdding ? "Adding.." : "Add Category"))])], 1)], 1), _vm._v(" "), _c("Modal", {
     attrs: {
       title: "Edit tag",
       "mask-closable": false,

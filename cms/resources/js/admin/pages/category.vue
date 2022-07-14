@@ -50,7 +50,7 @@
           :closable="false"
         >
 
-            <Input v-model="data.tagName" placeholder="Add category name" />
+            <Input v-model="data.categoryName" placeholder="Add category name" />
             <div class="space"></div>
              <Upload
                         red="uploads"
@@ -78,7 +78,7 @@
 
           <div slot="footer">
             <Button type="default" @click="addModal=false">Close</Button>
-            <Button type="primary" @click="addTag" :disable="isAdding" :loading="isAdding">{{isAdding ? 'Adding..' : 'Add tag'}}</Button>
+            <Button type="primary" @click="addCategory" :disable="isAdding" :loading="isAdding">{{isAdding ? 'Adding..' : 'Add Category'}}</Button>
           </div>
         </Modal>
 
@@ -146,19 +146,25 @@ export default {
 
   //métodos de adicionar tag
   methods: {
-    async addTag(){
-      if(this.data.tagName.trim()=='') return this.e('Tag name is required')
-      const res = await this.callApi('post', 'app/create_tag', this.data)
+    async addCategory(){
+      if(this.data.categoryName.trim()=='') return this.e('Category name is required')
+      if(this.data.iconImage.trim()=='') return this.e('Icon image is required')
+      
+      const res = await this.callApi('post', 'app/create_category', this.data)
       if(res.status===201){
         this.tags.unshift(res.data)
-        this.s('Tag has been added successully!')
+        this.s('Category has been added successully!')
         this.addModal = false
-        this.data.tagName = ''
+        this.data.categoryName = ''
+        this.data.iconImage = ''
       }else{
         //validação do Add tag, vinculada a validação de AdminController
         if(res.status==422){
-          if(res.data.errors.tagName){
-            this.e(res.data.errors.tagName[0])
+          if(res.data.errors.categoryName){
+            this.e(res.data.errors.categoryName[0])
+          }
+          if(res.data.errors.iconImage){
+            this.e(res.data.errors.iconImage[0])
           }
           console.log(res.data.errors.tagName);
         }else{

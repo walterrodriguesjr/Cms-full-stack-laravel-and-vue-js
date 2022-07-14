@@ -167,6 +167,14 @@ https://www.youtube.com/watch?v=TZwCOb2nINI&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
         ok 
 
 
+https://www.youtube.com/watch?v=GDKY3GmlKXw&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=13
+12-Laravel vuejs add and get category with image | Full stack laravel vue development | Part - 12
+
+    -Laravel vuejs adiciona e obtém categoria com imagem
+        
+
+
+
 
 
 

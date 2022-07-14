@@ -2,65 +2,84 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function addTag(Request $request){
+    public function addTag(Request $request)
+    {
         //validate request
         $this->validate($request, [
-           'tagName' => 'required' 
+            'tagName' => 'required'
         ]);
         return Tag::create([
             'tagName' => $request->tagName
         ]);
     }
-    
-    public function editTag(Request $request){
+
+    public function editTag(Request $request)
+    {
         //validate request
         $this->validate($request, [
-           'tagName' => 'required',
-           'id' => 'required', 
+            'tagName' => 'required',
+            'id' => 'required',
         ]);
         return Tag::where('id', $request->id)->update([
             'tagName' => $request->tagName
         ]);
-       
     }
 
-    public function deleteTag(Request $request){
+    public function deleteTag(Request $request)
+    {
         //validate request
         $this->validate($request, [
-           'id' => 'required', 
+            'id' => 'required',
         ]);
         return Tag::where('id', $request->id)->delete();
     }
 
-    public function getTag(){
-      return Tag::orderBy('id', 'desc')->get();  
+    public function getTag()
+    {
+        return Tag::orderBy('id', 'desc')->get();
     }
 
-    public function upload(Request $request){
+    public function upload(Request $request)
+    {
         /* $this->validate($request, [
             'file' => 'required|mimes:jpeg, jpg, png'
         ]); */
-        $picName = time().'.'.$request->file;
+        $picName = time() . '.' . $request->file;
         $request->file->move(public_path('uploads'), $picName);
         return $picName;
     }
 
-    public function deleteImage(Request $request){
+    public function deleteImage(Request $request)
+    {
         $fileName = $request->imageName;
         $this->deleteFileFromServe($fileName);
         return 'done';
     }
 
-    public function deleteFileFromServe($fileName){
-        $filePath = public_path().'/uploads/'.$fileName;
-        if(file_exists($filePath)){
+    public function deleteFileFromServe($fileName)
+    {
+        $filePath = public_path() . '/uploads/' . $fileName;
+        if (file_exists($filePath)) {
             @unlink($filePath);
+        }
+        return;
     }
-    return;
-}
+
+    public function addCategory(Request $request){
+         //validate request
+         $this->validate($request, [
+            'categoryName' => 'required',
+            'iconImage' => 'required',
+        ]);
+        return Category::create([
+            'categoryName' => $request->categoryName,
+            'iconName' => $request->iconName,
+        ]);
+    }
 }

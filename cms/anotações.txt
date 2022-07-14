@@ -151,6 +151,19 @@ https://www.youtube.com/watch?v=KfjEZzisQTo&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uD
     inserida a parte de front-end de componentes que servem para upload de imagem e encaminham 
         para uma pasta em public chamada upload, feito as router.vue, routes, AdminController disso 
 
+
+https://www.youtube.com/watch?v=rZ0gLHPmBFw&list=PLKpfEl4N7tRqIx4VZmuZBnUQ6vG4uDgq7&index=11
+10-Laravel vue frontend and backend file validation ( image ) | Part - 10
+
+    -Validação de arquivo de front-end e back-end do Laravel vue
+        realizada inserção de validação do tipo de codigo no front e no back 
+        inserido componente que mostra prévia do arquivo carregado 
+
+
+
+
+
+        
     
 
             

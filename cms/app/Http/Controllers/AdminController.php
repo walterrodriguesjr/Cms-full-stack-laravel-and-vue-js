@@ -42,8 +42,11 @@ class AdminController extends Controller
     }
 
     public function upload(Request $request){
-         $picName = time().'.'.$request->file->extension();
-         $request->file->move(public_path('upload'), $picName);
-         return $picName;
+        /* $this->validate($request, [
+            'file' => 'required|mimes:jpeg, jpg, png',
+        ]); */
+        $picName = time().'.'.$request->file;
+        $request->file->move(public_path('uploads'), $picName);
+        return $picName;
     }
 }

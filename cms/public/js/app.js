@@ -1920,14 +1920,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   data: function data() {
     return {
       data: {
-        tagName: ""
+        iconImage: '',
+        categoryName: ''
       },
       addModal: false,
       editModal: false,
       isAdding: false,
       tags: [],
       editData: {
-        tagName: ""
+        tagName: ''
       },
       index: -1,
       showDeleteModal: false,
@@ -1948,16 +1949,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this.data.tagName.trim() == "")) {
+                if (!(_this.data.tagName.trim() == '')) {
                   _context.next = 2;
                   break;
                 }
 
-                return _context.abrupt("return", _this.e("Tag name is required"));
+                return _context.abrupt("return", _this.e('Tag name is required'));
 
               case 2:
                 _context.next = 4;
-                return _this.callApi("post", "app/create_tag", _this.data);
+                return _this.callApi('post', 'app/create_tag', _this.data);
 
               case 4:
                 res = _context.sent;
@@ -1965,10 +1966,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (res.status === 201) {
                   _this.tags.unshift(res.data);
 
-                  _this.s("Tag has been added successully!");
+                  _this.s('Tag has been added successully!');
 
                   _this.addModal = false;
-                  _this.data.tagName = "";
+                  _this.data.tagName = '';
                 } else {
                   //validação do Add tag, vinculada a validação de AdminController
                   if (res.status == 422) {
@@ -2000,16 +2001,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (!(_this2.editData.tagName.trim() == "")) {
+                if (!(_this2.editData.tagName.trim() == '')) {
                   _context2.next = 2;
                   break;
                 }
 
-                return _context2.abrupt("return", _this2.e("Tag name is required"));
+                return _context2.abrupt("return", _this2.e('Tag name is required'));
 
               case 2:
                 _context2.next = 4;
-                return _this2.callApi("post", "app/edit_tag", _this2.editData);
+                return _this2.callApi('post', 'app/edit_tag', _this2.editData);
 
               case 4:
                 res = _context2.sent;
@@ -2017,7 +2018,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (res.status === 200) {
                   _this2.tags[_this2.index].tagName = _this2.editData.tagName;
 
-                  _this2.s("Tag has been edited successully!");
+                  _this2.s('Tag has been edited successully!');
 
                   _this2.editModal = false;
                 } else {
@@ -2059,7 +2060,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _this3.isDeleing = true;
                 _context3.next = 3;
-                return _this3.callApi("post", "app/delete_tag", _this3.deleteItem);
+                return _this3.callApi('post', 'app/delete_tag', _this3.deleteItem);
 
               case 3:
                 res = _context3.sent;
@@ -2067,7 +2068,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 if (res.status === 200) {
                   _this3.tags.splice(_this3.deletingIndex, 1);
 
-                  _this3.s("Tag has been deleted successfully!");
+                  _this3.s('Tag has been deleted successfully!');
                 } else {
                   _this3.swr();
                 }
@@ -2087,6 +2088,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.deleteItem = tag;
       this.deletingIndex = i;
       this.showDeleteModal = true;
+    },
+    handleSuccess: function handleSuccess(res, file) {
+      this.data.iconImage = res;
+    },
+    handleError: function handleError(res, file) {
+      this.$Notice.warning({
+        title: 'The file format is incorrect',
+        desc: "".concat(file.errors.file.length ? file.errors.file.length[0] : 'Something went wrong!')
+      });
+    },
+    handleFormatError: function handleFormatError(file) {
+      this.$Notice.warning({
+        title: 'The file format is incorrect',
+        desc: 'File format of ' + file.name + ' is incorrect, please select jpg or png.'
+      });
+    },
+    handleMaxSize: function handleMaxSize(file) {
+      this.$Notice.warning({
+        title: 'Exceeding file size limit',
+        desc: 'File  ' + file.name + ' is too large, no more than 2M.'
+      });
     }
   },
   created: function created() {
@@ -2100,7 +2122,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             case 0:
               _this4.token = window.Laravel.csrfToken;
               _context4.next = 3;
-              return _this4.callApi("get", "app/get_tags");
+              return _this4.callApi('get', 'app/get_tags');
 
             case 3:
               res = _context4.sent;
@@ -2447,7 +2469,7 @@ var render = function render() {
     staticClass: "_1adminOverveiw_table_recent _box_shadow _border_radious _mar_b30 _p20"
   }, [_c("p", {
     staticClass: "_title0"
-  }, [_vm._v("\r\n            Tags\r\n            "), _c("Button", {
+  }, [_vm._v("\r\n            Category "), _c("Button", {
     on: {
       click: function click($event) {
         _vm.addModal = true;
@@ -2457,7 +2479,7 @@ var render = function render() {
     attrs: {
       type: "md-add"
     }
-  }), _vm._v("Add tag")], 1)], 1), _vm._v(" "), _c("div", {
+  }), _vm._v("Add category")], 1)], 1), _vm._v(" "), _c("div", {
     staticClass: "_overflow _table_div"
   }, [_c("table", {
     staticClass: "_table"
@@ -2518,8 +2540,15 @@ var render = function render() {
     attrs: {
       type: "drag",
       headers: {
-        "x-csrf-token": _vm.token
+        "x-csrf-token": _vm.token,
+        "X-Requested-With": "XMLHttpRequest"
       },
+      "on-success": _vm.handleSuccess,
+      "on-error": _vm.handleError,
+      format: ["jpg", "jpeg", "png"],
+      "max-size": 2048,
+      "on-format-error": _vm.handleFormatError,
+      "on-exceeded-size": _vm.handleMaxSize,
       action: "/app/upload"
     }
   }, [_c("div", {
@@ -2534,7 +2563,13 @@ var render = function render() {
       type: "ios-cloud-upload",
       size: "52"
     }
-  }), _vm._v(" "), _c("p", [_vm._v("Click or drag files here to upload")])], 1)]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("p", [_vm._v("Click or drag files here to upload")])], 1)]), _vm._v(" "), _vm.data.iconImage ? _c("div", {
+    staticClass: "image_thumb"
+  }, [_c("img", {
+    attrs: {
+      src: "/uploads/".concat(_vm.data.iconImage)
+    }
+  })]) : _vm._e(), _vm._v(" "), _c("div", {
     attrs: {
       slot: "footer"
     },
@@ -82622,7 +82657,7 @@ var routes = [//projects routes
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\cursos\Cms full stack laravel and vue js\cms\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\cursos\Cms-full-stack-laravel-and-vue-js\cms\resources\js\app.js */"./resources/js/app.js");
 
 
 /***/ })
